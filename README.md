@@ -1,8 +1,8 @@
-# Web Attack Payload Reference
+# Web Vulnerability Control Mapping
 
 An educational reference of common web application vulnerabilities (XSS, SQL injection, command injection). Each entry explains how the attack works, why it works, and which control and framework address it.
 
-[Live demo](https://payload-generator-one.vercel.app)
+[Live demo](https://web-vuln-control-mapping-mauve.vercel.app)
 
 ![Payload reference with filters](docs/hero.png)
 

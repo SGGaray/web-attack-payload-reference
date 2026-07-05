@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Web Attack Payload Reference",
+  title: "Web Vulnerability Control Mapping",
   description:
-    "Educational reference of web vulnerabilities mapped to risk, controls, and frameworks (OWASP, NIST, ISO 27001).",
+    "Educational reference mapping common web vulnerabilities to risk, governance controls, and frameworks (OWASP, NIST, ISO 27001).",
 };
  
 export default function RootLayout({
