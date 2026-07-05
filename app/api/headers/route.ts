@@ -53,6 +53,16 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Cap input size. Real HTTP responses have a bounded number of headers,
+  // so anything absurdly large is either abuse or a mistake.
+  const MAX_LENGTH = 20_000;
+  if (body.raw.length > MAX_LENGTH) {
+    return NextResponse.json(
+      { error: `Field 'raw' exceeds the maximum length of ${MAX_LENGTH} characters.` },
+      { status: 413 }
+    );
+  }
+
   const headers: { name: string; value: string }[] = [];
 
   for (const line of body.raw.split(/\r?\n/)) {
