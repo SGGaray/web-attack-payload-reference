@@ -18,6 +18,15 @@ import HeaderAnalyzer from "@/components/tools/HeaderAnalyzer";
 import CommandGenerator from "@/components/tools/CommandGenerator";
 import PayloadGenerator from "@/components/tools/PayloadGenerator";
 
+export interface Tool {
+  id: string;
+  name: string;
+  blurb: string;
+  category: string;
+  icon: LucideIcon;
+  component: ComponentType;
+}
+
 /**
  * A tool definition. This registry is the ONLY place the app needs to know
  * about a tool. To add a new one: build a component, then add an entry here.
@@ -80,14 +89,6 @@ export const tools: Tool[] = [
     category: "Recon",
     icon: Terminal,
     component: CommandGenerator,
-  },
-  {
-    id: "payloads",
-    name: "Payloads",
-    blurb: "Reference payloads with explanations and tags.",
-    category: "Recon",
-    icon: Bug,
-    component: PayloadGenerator,
   },
 ];
 
