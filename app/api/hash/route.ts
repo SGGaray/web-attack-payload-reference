@@ -30,6 +30,15 @@ export async function POST(req: NextRequest) {
     );
   }
 
+  // Cap input size to prevent a caller from tying up CPU with a huge payload.
+  const MAX_LENGTH = 100_000;
+  if (text.length > MAX_LENGTH) {
+    return NextResponse.json(
+      { error: `Field 'text' exceeds the maximum length of ${MAX_LENGTH} characters.` },
+      { status: 413 }
+    );
+  }
+
   // Default to all algorithms, but keep only ones we explicitly allow.
   const requested = Array.isArray(algorithms) ? algorithms : [...ALLOWED];
   const algos = requested.filter(
