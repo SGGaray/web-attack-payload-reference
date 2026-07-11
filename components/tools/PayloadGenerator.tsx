@@ -323,6 +323,25 @@ export default function PayloadGenerator() {
                         <p className="text-sm text-fg">{text}</p>
                       </div>
                     ))}
+
+                    {/* Governance mapping: the reason this project exists.
+                        Kept visually distinct from the conceptual fields
+                        above with a top border, since this is risk and
+                        control content, not exploit explanation. */}
+                    <div className="flex flex-col gap-2 border-t border-line pt-3">
+                      {(
+                        [
+                          ["OWASP category", explanations[p.id].owasp],
+                          ["Mapped control", explanations[p.id].control],
+                          ["Mitigation", explanations[p.id].mitigation],
+                        ] as const
+                      ).map(([label, text]) => (
+                        <div key={label} className="flex flex-col gap-1">
+                          <span className="eyebrow text-bright">{label}</span>
+                          <p className="text-sm text-fg">{text}</p>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
